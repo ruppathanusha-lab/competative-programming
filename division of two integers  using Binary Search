@@ -1,0 +1,18 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int dividend=sc.nextInt();
+        int divisor=sc.nextInt();
+        int min=Integer.MIN_VALUE;
+        if(dividend==min || dividend==0){
+            System.out.println(Integer.MAX_VALUE);
+            return;
+        }
+        System.out.println(dividend/divisor);
+    }
+}
