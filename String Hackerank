@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+          static void findSubSequences(String str,String ans,int index,ArrayList<String> list){
+            if(index==str.length()){
+                list.add(ans);
+               return ;  
+            }
+            findSubSequences(str,ans+str.charAt(index),index+1,list);
+            findSubSequences(str,ans,index+1,list);
+          }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        ArrayList<String> list = new ArrayList<>();
+        findSubSequences(str, "", 0, list);
+        int max=0;
+        for(String s:list){
+            boolean isPalindrome = true;
+            int left = 0;
+            int right = s.length() - 1;
+            while (left < right) {
+               if (s.charAt(left) != s.charAt(right)) {
+                   isPalindrome = false;
+                   break;
+                }
+               left++;
+               right--;
+            }
+            if(isPalindrome){
+            if(max<s.length()){
+                max=s.length();
+            }}
+        }
+       System.out.println(max);
+}
+}
