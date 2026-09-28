@@ -1,0 +1,50 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int[] countingSort(int[] arr) {
+        int[] count = new int[100];
+
+        for (int i = 0; i < arr.length; i++) {
+            count[arr[i]]++;
+        }
+        int[] result = new int[arr.length];
+        int index = 0;
+
+        for (int i = 0; i < 100; i++) {
+            while (count[i] > 0) {
+                result[index] = i;
+                index++;
+                count[i]--;
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int[] result = countingSort(arr);
+
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + " ");
+        }
+
+        sc.close();
+    }
+}
+        
