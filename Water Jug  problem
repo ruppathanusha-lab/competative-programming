@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class Solution {
+
+    static int gcd(int a, int b) {
+        if(a%2!=0 && b%2!=0){
+            return 1;
+        }
+        if (b > a) {
+            return gcd(b, a);
+        }
+
+        if (b == 0) {
+            return a;
+        }
+
+        return gcd(b, a % b);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        int result = gcd(a, b);
+
+        if (c % result== 0) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
