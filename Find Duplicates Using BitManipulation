@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+
+        int seen = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+
+            int index = s.charAt(i) - 'a';
+            int bit = 1 << index;
+
+            if ((seen & bit) != 0) {
+                System.out.print(s.charAt(i) + " ");
+            }
+
+            seen |= bit;
+        }
+    }
+}
