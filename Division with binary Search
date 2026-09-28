@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        int low=0;
+        int high=x;
+        while(low<=high){
+        int mid=low+(high-low)/2;
+            if(y*mid==x){
+                System.out.println(mid);
+                break;
+            }
+            else if(y*mid<x){
+                low=low+1;
+            }
+            else{
+                high=high-1;
+            }
+        }
+    }
+}
