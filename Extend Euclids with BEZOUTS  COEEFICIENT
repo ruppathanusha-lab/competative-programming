@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        int x=a;
+        int y=b;
+        while(y!=0){
+            int temp=y;
+            y=x%y;
+            x=temp;    
+        }
+        
+        int s1=1;
+        int s2=0;
+        int t1=0;
+        int t2=1;
+        int r=0;
+        int q=0;
+        int t=0;
+        int  s=0;
+         while(b!=0){
+            q = a / b;
+            r = a % b;
+
+            s = s1 - s2 * q;
+         t = t1 - t2 * q;
+
+          a = b;
+          b = r;
+
+           s1 = s2;
+           s2 = s;
+
+        t1 = t2;
+          t2 = t;
+         }
+        System.out.println(s1+" "+t1+" "+x);
+    }
+}
